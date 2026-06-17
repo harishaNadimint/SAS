@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/story_provider.dart';
@@ -120,8 +121,39 @@ class QuizCard extends StatelessWidget {
                 ),
               ),
           ],
-        ),
+        ).animate( target: provider.shakeQuiz ? 1 : 0,
+          effects: [
+            ShakeEffect(
+              duration:
+                  const Duration(milliseconds: 300),
+              hz: 4,
+              offset: const Offset(5, 0),
+            ),
+          ],
+        ).shake(duration: const Duration(
+          milliseconds: 300,
+        ),  ),
       ),
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
